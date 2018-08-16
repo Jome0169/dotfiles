@@ -9,15 +9,16 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'raimondi/delimitmate'
 Plugin 'alvan/vim-closetag'
 Plugin 'reedes/vim-pencil'
-Bundle "scrooloose/nerdtree"
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'junegunn/goyo.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-syntastic/syntastic'
+Bundle 'edkolev/tmuxline.vim'
 
-
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -40,8 +41,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 hi Visual ctermfg=16 ctermbg=67
 
-
-
+let g:tmuxline_powerline_separators = 0
+let g:airline_theme='angr'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tmuxline#enabled = 1
+let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
  
 
 syntax on
