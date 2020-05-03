@@ -17,7 +17,6 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'lervag/vimtex'
 Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vimwiki/vimwiki'
@@ -27,12 +26,6 @@ Plugin 'michal-h21/vim-zettel'
 Plugin 'tpope/vim-surround'
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'itchyny/lightline.vim'
-
-
-
-
-
-
 
 
 
@@ -62,10 +55,7 @@ hi Visual ctermfg=16 ctermbg=67
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'latexmk -pdf -pvc $*'
-
-
 let g:hybrid_custom_term_colors = 1
-colorscheme hybrid"
 
 
 syntax on
@@ -93,38 +83,27 @@ set expandtab     " When using <Tab>, put spaces instead of a <tab> character
 set listchars=tab:>-,trail:-,nbsp:_
 set list
 
-#colorscheme gruvbox
-set background=light
-
-function! ProseMode()
-  call goyo#execute(0, [])
-  set spell noci nosi noai nolist noshowmode noshowcmd
-  set complete+=s
-endfunction
-
-command! ProseMode call ProseMode()
-nmap \p :PrseMode<CR>
-
-function! LightMode()
-    set background=light
-    colorscheme gruvbox
-endfunction
-
-command! LightMode call LightMode()
-
-function! DarkMode()
-    set background=dark
-    colorscheme gruvbox
-endfunction
-
-command! DarkMode call DarkMode()
-
-
 au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.rules set syntax=snakemake
 au BufNewFile,BufRead *.snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
 au BufNewFile,BufRead *.smk set syntax=snakemake
+
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+set background=dark
+colorscheme palenight
+let g:lightline = { 'colorscheme': 'palenight' }
+
+let g:palenight_terminal_italics=1
+let g:airline_theme = "palenight"
+set ttimeoutlen=50
+
+
+
 
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 let g:vimwiki_list = [{'path':'~/scratchbox/vimwiki/markdown/','ext':'.md','syntax':'markdown', 'zettel_template': "~/mytemplate.tpl"}, {"path":"~/scratchbox/vimwiki/wiki/"}]
@@ -147,7 +126,4 @@ augroup END
 
 " Set template and custom header variable for the second Wiki
 let g:zettel_options = [{},{"front_matter" : {"tags" : ""}, "template" :  "~/mytemplate.tpl"}]
-
-
-
 
