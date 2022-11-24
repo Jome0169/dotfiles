@@ -5,27 +5,22 @@ call vundle#rc()
 
 
 Plugin 'gmarik/vundle'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'raimondi/delimitmate'
 Plugin 'alvan/vim-closetag'
-Plugin 'reedes/vim-pencil'
 Plugin 'ivan-krukov/vim-snakemake'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 Plugin 'junegunn/goyo.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'lervag/vimtex'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vimwiki/vimwiki'
+Plugin 'morhetz/gruvbox'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'michal-h21/vim-zettel'
 Plugin 'tpope/vim-surround'
-Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/lightline.vim' 
+Plugin 'ycm-core/YouCompleteMe'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+Plugin 'Jome0169/vim-snippets'
+Plugin 'jalvesaq/Nvim-R'
 
 
 
@@ -95,8 +90,8 @@ if (has("termguicolors"))
 endif
 
 set background=dark
-colorscheme palenight
-let g:lightline = { 'colorscheme': 'palenight' }
+colorscheme gruvbox 
+let g:lightline = { 'colorscheme': 'gruvbox' }
 
 let g:palenight_terminal_italics=1
 let g:airline_theme = "palenight"
@@ -105,25 +100,4 @@ set ttimeoutlen=50
 
 
 
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-let g:vimwiki_list = [{'path':'~/scratchbox/vimwiki/markdown/','ext':'.md','syntax':'markdown', 'zettel_template': "~/mytemplate.tpl"}, {"path":"~/scratchbox/vimwiki/wiki/"}]
-
-" Filename format. The filename is created using strftime() function
-let g:zettel_format = "%y%m%d-%H%M"
-" command used for VimwikiSearch 
-" possible values: "ag", "rg", "grep"
-let g:zettel_fzf_command = "grep"
-" Disable default keymappings
-let g:zettel_default_mappings = 0 
-" This is basically the same as the default configuration
-augroup filetype_vimwiki
-  autocmd!
-  autocmd FileType vimwiki imap <silent> [[ [[<esc><Plug>ZettelSearchMap
-  autocmd FileType vimwiki nmap T <Plug>ZettelYankNameMap
-  autocmd FileType vimwiki xmap z <Plug>ZettelNewSelectedMap
-  autocmd FileType vimwiki nmap gZ <Plug>ZettelReplaceFileWithLink
-augroup END
-
-" Set template and custom header variable for the second Wiki
-let g:zettel_options = [{},{"front_matter" : {"tags" : ""}, "template" :  "~/mytemplate.tpl"}]
-
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]

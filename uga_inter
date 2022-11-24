@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "Input the IP name output from the Cluster"
+read varname
+ssh -N -L 9000:$varname:9000 jpm73279@sapelo2.gacrc.uga.edu
